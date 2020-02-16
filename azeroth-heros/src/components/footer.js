@@ -1,13 +1,14 @@
 import React from 'react';
-class footer extends React.Component  {
+const Footer = props =>  {
   return (
    	<footer style={styles.foot}>
 		<p>Mayjenta Malzahn 2019</p>
+	  	<img src= '../img/Footer-Alagon.jpg' alt='Alagon'></img>
 		</footer>
   );
 }
 
-export default footer;
+export default Footer;
 
 const styles ={
 		foot:{
@@ -15,8 +16,9 @@ const styles ={
 		position: 'absolute',
 		height: '100px',
 		width: '100%',
-		backgroundColor: 'rgb(241, 179, 255)',
-		boxShadow: '2px -2px grey',
+		backgroundColor: 'rgb(0, 0, 0)',
+		boxShadow: '2px -2px goldenrod',
+		color: 'white',
 		}
 		
 }
