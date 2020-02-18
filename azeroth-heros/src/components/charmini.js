@@ -7,7 +7,7 @@ const CharMini = props =>{
   return (
 	
   		<article style={styles.mini}>
-			<NavLink to='/profile'><img className="port" onClick = {props.charPage}  src = 'http://render-us.worldofwarcraft.com/character/{props.val.thumb}'></img></NavLink>
+			<NavLink to='/profile'><img className="port" onClick = {props.charPage}  src = {'http://render-us.worldofwarcraft.com/character/'+props.val.thumb}></img></NavLink>
 			<h3 className="">{props.val.name}</h3>
 			<h4>{props.val.clas}</h4>
 			<p className="">{props.val.realm}</p>
