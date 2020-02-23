@@ -5,13 +5,14 @@ import Header from './components/header';
 import Routes from './components/Routes';
 import { BrowserRouter as Router } from "react-router-dom";
 
-
 function App() {
   return (
 	  <div style={styles.main}>
 	  <Router>
 		<Header />
+	  	<div style={styles.mid}>
 		 <Routes />
+	  </div>
 		<Footer />
 	  </Router>
 	  </div>
@@ -22,7 +23,13 @@ export default App;
 
 const styles ={
 	main:{
+		fontFamily: 'Simonetta', 
 		backgroundColor: 'grey',
-		height: '100vh',
+		minHeight: '100vh',
+	},
+	mid:{
+		marginTop: '100px',
+		marginBottom: '100px',
+		
 	}
 }

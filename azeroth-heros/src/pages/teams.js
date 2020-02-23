@@ -1,16 +1,15 @@
 import React from 'react';
 import TeamView from '../components/teamView';
-
+import '../App.css';
 var teamsList = [];
 class teams extends React.Component{
 	
 	add = name => {
 		if(name !== null && name !== ' '){
-	let teamTemp = {'name': name};
+	let teamTemp = {'name': name, 'characters': []};
 	console.log(teamTemp);
 	teamsList.push(teamTemp);
 	saveTeams();}
-	this.forceUpdate();
 }
 	select = () =>{
 		if(document.querySelector('#name').value){this.add(document.querySelector('#name').value)}
@@ -40,12 +39,12 @@ class teams extends React.Component{
 		
 		return(
 		<div style={styles.test}>
-			<form>
+			<form style={styles.arts} onSubmit={this.select}>
 			<p>
-					<label>Team Name</label>
-					<input type="text" name="name" id="name" placeholder="Bosltering/Necrotic" />
+					<label style={styles.pad}>Team Name</label>
+					<input style={styles.pad} type="text" name="name" id="name" placeholder="Bosltering/Necrotic" />
 				</p>
-			<button type='button' onClick = {this.select}>Add!</button>
+			<button>Add!</button>
 			</form>
 			<div id='teams'>
 				{searchList}
@@ -73,5 +72,16 @@ const styles ={
 		color: 'white',
 		marginBottom: '100px',
 		
+	},
+	arts:{
+		display: 'flex',
+		justifyContent: 'center',
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingLeft: '5px',
+		paddingRight: '5px',
+	},
+	pad:{
+		marginRight: '5px',
 	}
 }

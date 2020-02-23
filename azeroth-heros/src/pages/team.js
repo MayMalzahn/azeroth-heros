@@ -1,7 +1,7 @@
 import React from 'react';
 import CharMini from '../components/charMini';
 import {NavLink } from "react-router-dom";
-
+import '../App.css';
 
 var savedTeam = [];
 class team extends React.Component{
@@ -26,28 +26,12 @@ class team extends React.Component{
 		}
 		localStorage.setItem('teamsList',JSON.stringify(temp));
 	}
-	add =()=> {
-		console.log('add pressed');
-		var chars = JSON.parse(localStorage.getItem('charList'));
-		var temps = document.getElementById('chararea');
-		let searchList2 = chars.map((element , e) =>{
-			var temp = '';
-			temp += "<article>";
-			temp += "<NavLink to='/profile'><img className='port' onClick ={this.charPage("+e+")}  src = 'http://render-us.worldofwarcraft.com/character/"+chars[e].thumb+"'></img></NavLink>";
-			temp += "<h2>"+chars[e].name+"</h2>";
-			temp += "<h2>"+chars[e].realm+"</h2>";
-			temp += "</article>";
-			temp += "<button type='button' onClick ={this.addToTeam("+e+")}>Add To Team</button>";
-			return temp;
-		})
-		if(temps){
-		temps.innerHTML = searchList2;
-	}}
 	
-	addToTeam = a =>{
+	
+		addToTeam = a =>{
 		console.log('button worked');
 		if(savedTeam.length <= 5){
-			console.log('added');
+		console.log('added');
 		var chars = JSON.parse(localStorage.getItem('charList'));
 		savedTeam.push(chars[a]);
 		saveTeams();
@@ -56,6 +40,8 @@ class team extends React.Component{
 			window.alert('There are already 5 memebers on this team!');
 		}
 	}
+	
+
 	
 	
 	render(){
@@ -73,7 +59,6 @@ class team extends React.Component{
 		<div style={styles.test}>
 			<h1>{savedTeam.name}</h1>
 		{searchList}
-		<button type='button' onClick = {this.add}>Add Character</button>
 		<NavLink to='/teams'><button type='button' onClick = {()=>this.delTeam(savedTeam.name)}>Delete Team</button></NavLink>
 		</div>
 		<div id='chararea'>

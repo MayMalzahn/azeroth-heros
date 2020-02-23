@@ -1,9 +1,8 @@
 import React from 'react';
 import $ from 'jquery';
 import CharMini from '../components/charMini';
-
-
-
+import ReactDom from 'react-dom';
+import '../App.css';
 var charList = [];
 class characters extends React.Component{
 	
@@ -13,11 +12,13 @@ class characters extends React.Component{
 	saveChars();
 	this.forceUpdate();
 }
-	find = () =>{
+	find = event =>{
+	event.preventDefault();
 	var name = document.getElementById('name');
 	var realm = document.getElementById('realm');
 	if(!(charValidate(name.value,realm.value,charList))){
 	getTalents(name.value,realm.value);
+	this.forceUpdate();
 	}
 	
 }
@@ -25,26 +26,28 @@ class characters extends React.Component{
 	localStorage.setItem('profileChar',JSON.stringify(charList[num]));
 }	
 	
+	
+	
 	render(){
 		loadChars();
 		console.log(charList);
 		
 		let searchList = charList.map((element , i) =>{
-			return <CharMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)}/>
+			return <CharMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)} add={i}/>
 		})
 		
 		return(
 		<div style={styles.test}>
-			<form style={styles.arts}>
+			<form style={styles.arts} onSubmit= {this.find}>
 				<p>
-					<label>Character Name</label>
-					<input type="text" name="name" id="name" placeholder="Maethrya" />
+					<label style={styles.pad}>Character Name</label>
+					<input style={styles.pad} type="text" name="name" id="name" placeholder="Maethrya" />
 				</p>
 				<p>
-					<label>Realm</label>
-					<input type="text" name="realm" id="realm" placeholder="Greymane" />
+					<label style={styles.pad}>Realm</label>
+					<input style={styles.pad} type="text" name="realm" id="realm" placeholder="Greymane" />
 				</p>
-			<button type='button' onClick = {this.find} >Find!</button>
+			<button>Find!</button>
 			</form>
 			<div id='charArea' style={styles.arts}>
 			{searchList}
@@ -80,6 +83,27 @@ var token = JSON.parse(getToken());
 				'Access-Control-Allow-Headers' : 'x-requested-with'},
 		body: grant,
 		async:false,
+		success:function(data)
+		{}
+    
+	}).responseText;
+		//returns results for storage in token
+		return result;
+	}
+async function getToken2(url='https://us.battle.net/oauth/token', data = {"grant_type":"client_credentials"}){
+	//getting the access token using my client id and secret. This is required to pull anything from my chosen api
+	const result = await fetch(url, {
+		method: 'POST',
+		grant_type:"client_credentials",
+		beforeSend: function(request)
+		{	//sends the id and secret to log in
+			request.setRequestHeader("Authorization","Basic "+btoa(id+":"+secret));
+		},
+		headers: {//makes the grant_type work. Ill admit I am not sure why
+				'Content-Type': 'application/x-www-form-urlencoded',
+				 "accepts": "application/json",
+				'Access-Control-Allow-Headers' : 'x-requested-with'},
+		body: grant,
 		success:function(data)
 		{}
     
@@ -174,13 +198,13 @@ class Toon{
 		this.hk = hk;
 		this.talents = talents;
 		if(rol === "HEALING"){
-			this.role = '<img src="img/heal.png" alt="Healing Symbol">';
+			this.role = 'heal';
 		}
 		if(rol === "TANK"){
-			this.role = '<img src="img/tank.png" alt="Tanking Symbol">';
+			this.role = 'tank';
 		}
 		if(rol === "DPS"){
-			this.role = '<img src="img/dps.png" alt="DPS Symbol">';
+			this.role = 'dps';
 		}
 		this.fac = fac;
 	}
@@ -234,5 +258,8 @@ const styles ={
 		alignItems: 'center',
 		paddingLeft: '5px',
 		paddingRight: '5px',
+	},
+	pad:{
+		marginRight: '5px',
 	}
 }
