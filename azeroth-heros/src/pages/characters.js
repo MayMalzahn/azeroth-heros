@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import CharMini from '../components/charMini';
+import CharMini from '../components/charmini';
 import ReactDom from 'react-dom';
 import '../App.css';
 var charList = [];

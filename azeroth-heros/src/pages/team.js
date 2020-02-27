@@ -1,5 +1,5 @@
 import React from 'react';
-import CharMini from '../components/charMini';
+import CharMini from '../components/charmini';
 import {NavLink } from "react-router-dom";
 import '../App.css';
 
