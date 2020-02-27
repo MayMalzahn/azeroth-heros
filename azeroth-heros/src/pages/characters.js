@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import charMini from '../components/charMini';
+import CharMini from '../components/charMini';
 import ReactDom from 'react-dom';
 import '../App.css';
 var charList = [];
@@ -33,7 +33,7 @@ class characters extends React.Component{
 		console.log(charList);
 		
 		let searchList = charList.map((element , i) =>{
-			return <charMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)} add={i}/>
+			return <CharMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)} add={i}/>
 		})
 		
 		return(
@@ -90,7 +90,9 @@ var token = JSON.parse(getToken());
 		//returns results for storage in token
 		return result;
 	}
-async function getToken2(url='https://us.battle.net/oauth/token', data = {"grant_type":"client_credentials"}){
+async function getToken2(){
+	const data = {"grant_type":"client_credentials"};
+	const url='https://us.battle.net/oauth/token';
 	//getting the access token using my client id and secret. This is required to pull anything from my chosen api
 	const result = await fetch(url, {
 		method: 'POST',
