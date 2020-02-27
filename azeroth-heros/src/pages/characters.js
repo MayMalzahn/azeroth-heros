@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import CharMini from '../components/charMini';
+import charMini from '../components/charMini';
 import ReactDom from 'react-dom';
 import '../App.css';
 var charList = [];
@@ -33,7 +33,7 @@ class characters extends React.Component{
 		console.log(charList);
 		
 		let searchList = charList.map((element , i) =>{
-			return <CharMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)} add={i}/>
+			return <charMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)} add={i}/>
 		})
 		
 		return(

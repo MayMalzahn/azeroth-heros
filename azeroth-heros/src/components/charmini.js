@@ -3,7 +3,7 @@ import {NavLink } from "react-router-dom";
 import '../App.css';
 import Popup from 'reactjs-popup';
 
-const CharMini = props =>{
+const charMini = props =>{
 			var teams = JSON.parse(localStorage.getItem('teamsList'));
 			let teamNames = teams.map((element, i) =>{
 				return <button type='button' onClick={()=>addToTeam({i})} id={i} className='menu-item'>{element.name}</button>
@@ -33,7 +33,7 @@ const CharMini = props =>{
   );
 }
 
-export default CharMini;
+export default charMini;
 
 const styles ={
 		mini:{

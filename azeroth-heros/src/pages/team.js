@@ -1,5 +1,5 @@
 import React from 'react';
-import CharMini from '../components/charMini';
+import charMini from '../components/charMini';
 import {NavLink } from "react-router-dom";
 import '../App.css';
 
@@ -50,7 +50,7 @@ class team extends React.Component{
 		console.log(savedTeam.values);
 		if(savedTeam !== null && savedTeam !== undefined && savedTeam !== [] && savedTeam.length > 1){
 		let searchList = savedTeam.values.map((element , i) =>{
-			return <CharMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)}/>
+			return <charMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)}/>
 		})}
 
 		
