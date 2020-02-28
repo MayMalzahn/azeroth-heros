@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import $ from 'jquery';
 import CharMini from '../components/charmini';
 import ReactDom from 'react-dom';
 import '../App.css';
+
 var charList = [];
 class characters extends React.Component{
 	
@@ -61,13 +62,13 @@ export default characters;
 
 var id = "de8df8220aba46f794d661d7683ed707";
 var secret = "CSh9ZdAIQdI5Df9yVC99k7SYQG08oIH8";
-var grant = {grant_type: "client_credentials",
+/*var grant = {grant_type: "client_credentials",
 			client_id: id,
-			client_secret: grant};
-var token = JSON.parse(getToken());
+			client_secret: grant};*/
+const [accessToken, setAccessToken]= useState('');
 
 	
-	function getToken(){
+	/*function getToken(){
 	//getting the access token using my client id and secret. This is required to pull anything from my chosen api
 	var result = $.ajax({
 		type: 'POST',
@@ -89,34 +90,32 @@ var token = JSON.parse(getToken());
 	}).responseText;
 		//returns results for storage in token
 		return result;
-	}
-async function getToken2(){
+	}*/
+ function getToken2(){
 	const data = {"grant_type":"client_credentials"};
 	const url='https://us.battle.net/oauth/token';
 	//getting the access token using my client id and secret. This is required to pull anything from my chosen api
-	const result = await fetch(url, {
+	const result =  fetch(url, {
 		method: 'POST',
 		grant_type:"client_credentials",
-		beforeSend: function(request)
-		{	//sends the id and secret to log in
-			request.setRequestHeader("Authorization","Basic "+btoa(id+":"+secret));
-		},
 		headers: {//makes the grant_type work. Ill admit I am not sure why
+				"Authorization":"Basic "+btoa(id+":"+secret),
 				'Content-Type': 'application/x-www-form-urlencoded',
 				 "accepts": "application/json",
 				'Access-Control-Allow-Headers' : 'x-requested-with'},
-		body: grant,
-		success:function(data)
-		{}
+		body: "grant_type=client_credentials",
     
-	}).responseText;
-		//returns results for storage in token
-		return result;
+	}).then((resp)=>{
+			console.log(resp.json);
+			return resp.json();
+			}).then((data)=>{
+					setAccessToken(data.access_token);
+					})
 	}
 
 function getTalents(name,realm){
 
-		fetch('https://us.api.blizzard.com/wow/character/'+realm+'/'+name+'?fields=talents&locale=en_US&access_token='+token["access_token"])
+		fetch('https://us.api.blizzard.com/wow/character/'+realm+'/'+name+'?fields=talents&locale=en_US&access_token='+accessToken)
 	.then(function(response){
 		  if(!response.ok){
 			  //unfortunately, the api only returns "not found", not if the realm or character is the problem.
