@@ -31,17 +31,17 @@ const styles ={
 	head:{
 		fontSize:'3em',
 		color: 'goldenrod',
-		 textShadow: '2px -2px black',},
+		 textShadow: '2px -2px #cc9900',},
 	fort:{color:'skyblue',
 		  fontSize:'2em',
-		 textShadow: '2px -2px black',},
+		 textShadow: '2px -2px #330099',},
 	burst:{color:'darkred',
 		   fontSize:'2em',
-		  textShadow: '2px -2px black',},
+		  textShadow: '2px -2px #c7475d',},
 	vol:{color:'orange',
 		 fontSize:'2em',
-		textShadow: '2px -2px black',},
+		textShadow: '2px -2px #EE7600',},
 	awak:{color:'rgb(90,235,173)',
 		  fontSize:'2em',
-		 textShadow: '2px -2px black',}
+		 textShadow: '2px -2px #333300',}
 }

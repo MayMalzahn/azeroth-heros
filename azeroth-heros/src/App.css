@@ -9,7 +9,7 @@ body{
 	position:absolute;
 	width: 100%;
 }
-
+.port:hover{background-color:gold;opacity: .5;}
 .Warrior{color:saddlebrown;}
 .Mage{color:cornflowerblue}
 .Monk{color:mediumseagreen}

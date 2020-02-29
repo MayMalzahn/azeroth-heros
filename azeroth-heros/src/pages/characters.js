@@ -62,13 +62,13 @@ export default characters;
 
 var id = "de8df8220aba46f794d661d7683ed707";
 var secret = "CSh9ZdAIQdI5Df9yVC99k7SYQG08oIH8";
-/*var grant = {grant_type: "client_credentials",
+var grant = {grant_type: "client_credentials",
 			client_id: id,
-			client_secret: grant};*/
-const [accessToken, setAccessToken]= useState('');
-
+			client_secret: grant};
+//const [accessToken, setAccessToken]= useState('');
+var accessToken = JSON.parse(getToken());
 	
-	/*function getToken(){
+	function getToken(){
 	//getting the access token using my client id and secret. This is required to pull anything from my chosen api
 	var result = $.ajax({
 		type: 'POST',
@@ -90,8 +90,8 @@ const [accessToken, setAccessToken]= useState('');
 	}).responseText;
 		//returns results for storage in token
 		return result;
-	}*/
- function getToken2(){
+	}
+/* function getToken2(){
 	const data = {"grant_type":"client_credentials"};
 	const url='https://us.battle.net/oauth/token';
 	//getting the access token using my client id and secret. This is required to pull anything from my chosen api
@@ -111,11 +111,11 @@ const [accessToken, setAccessToken]= useState('');
 			}).then((data)=>{
 					setAccessToken(data.access_token);
 					})
-	}
+	}*/
 
 function getTalents(name,realm){
 
-		fetch('https://us.api.blizzard.com/wow/character/'+realm+'/'+name+'?fields=talents&locale=en_US&access_token='+accessToken)
+		fetch('https://us.api.blizzard.com/wow/character/'+realm+'/'+name+'?fields=talents&locale=en_US&access_token='+accessToken['access_token'])
 	.then(function(response){
 		  if(!response.ok){
 			  //unfortunately, the api only returns "not found", not if the realm or character is the problem.
