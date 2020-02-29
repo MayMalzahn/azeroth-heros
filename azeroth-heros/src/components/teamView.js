@@ -26,6 +26,9 @@ const styles ={
 		backgroundColor: 'rgb(0, 0, 0)',
 		boxShadow: '-5px 5px goldenrod',
 		margin: '10px',
-		}
+		},
+	img:{
+		borderRadius: '50%',
+	}
 		
 }

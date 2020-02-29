@@ -5,11 +5,12 @@ import Popup from 'reactjs-popup';
 
 const CharMini = props =>{
 			var teams = JSON.parse(localStorage.getItem('teamsList'));
-			let teamNames = [];
-			if(teams != undefined && teams.length > 0){
 			let teamNames = teams.map((element, i) =>{
 				return <button type='button' onClick={()=>addToTeam({i})} id={i} className='menu-item'>{element.name}</button>
-			})}
+			})
+			if(teams === undefined){
+				teamNames = [];
+			}
 			function addToTeam(position){
 				teams[position.i].characters.push(props.val);
 				console.log(teams[position.i]);
@@ -44,6 +45,7 @@ const styles ={
 		boxShadow: '-5px 5px goldenrod',
 		margin: '10px',
 		padding: '3px',
+		maxWidth: '25%',
 		},
 	img: {
 		borderRadius: '15px',

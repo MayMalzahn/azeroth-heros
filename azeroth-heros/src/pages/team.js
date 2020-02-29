@@ -46,22 +46,24 @@ class team extends React.Component{
 	
 	render(){
 		loadChars();
-		let searchList = 'There is no one on this team!';
-		console.log(savedTeam.values);
-		if(savedTeam !== null && savedTeam !== undefined && savedTeam !== [] && savedTeam.length > 1){
-		let searchList = savedTeam.values.map((element , i) =>{
+	
+		console.log(savedTeam);
+		let searchList = savedTeam.characters.map((element , i) =>{
 			return <CharMini key={i} val={element} del={()=>this.delChar(i)} charPage={()=>this.charPage(i)}/>
-		})}
+		})
+		if(savedTeam === undefined || savedTeam.characters.length < 1){
+				let searchList = 'There is no one on this team!';
+		}
 
 		
 		return(
 		<div>
 		<div style={styles.test}>
 			<h1>{savedTeam.name}</h1>
-		{searchList}
 		<NavLink to='/teams'><button type='button' onClick = {()=>this.delTeam(savedTeam.name)}>Delete Team</button></NavLink>
-		</div>
-		<div id='chararea'>
+		<div style ={styles.arts}>
+		{searchList}
+		</div>										  
 		</div>
 		</div>
 		)
@@ -82,5 +84,13 @@ const styles ={
 		marginTop: '100px',
 		color: 'white',
 		marginBottom: '100px',
-	}
+	},
+	arts:{
+		display: 'flex',
+		justifyContent: 'center',
+		flexDirection: 'row',
+		alignItems: 'center',
+		paddingLeft: '5px',
+		paddingRight: '5px',
+	},
 }
