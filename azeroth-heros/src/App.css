@@ -6,10 +6,26 @@ html{
 
 
 body{
-	position:absolute;
+	position:static;
 	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
 }
+
+*:link,
+*:visited,
+*:hover,
+*:active {
+  text-decoration: none; 
+
+}
+
+
+.links:link{color: white;}
+.links:visited{color: white;}
 .port:hover{background-color:gold;opacity: .5;}
+.porta{width: 90%; border: solid grey}
 .Warrior{color:saddlebrown;}
 .Mage{color:cornflowerblue}
 .Monk{color:mediumseagreen}

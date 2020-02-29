@@ -16,7 +16,7 @@ export default Footer;
 const styles ={
 		foot:{
 		bottom: 0,
-		position: 'absolute',
+		position: 'static',
 		height: '100px',
 		width: '100%',
 		backgroundColor: 'rgb(0, 0, 0)',
@@ -24,6 +24,7 @@ const styles ={
 		color: 'white',
 		display: 'flex',
 		justifyContent: 'space-between',
+		marginTop: 'auto',
 		},
 	footImg:{
 		maxWidth: '100%',

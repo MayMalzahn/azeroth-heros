@@ -19,6 +19,7 @@ class characters extends React.Component{
 	var realm = document.getElementById('realm');
 	if(!(charValidate(name.value,realm.value,charList))){
 	getTalents(name.value,realm.value);
+
 	this.forceUpdate();
 	}
 	
@@ -38,6 +39,7 @@ class characters extends React.Component{
 		})
 		
 		return(
+			<div style={styles.container}>
 		<div style={styles.test}>
 			<form style={styles.arts} onSubmit= {this.find}>
 				<p>
@@ -48,12 +50,12 @@ class characters extends React.Component{
 					<label style={styles.pad}>Realm</label>
 					<input style={styles.pad} type="text" name="realm" id="realm" placeholder="Greymane" />
 				</p>
-			<button>Find!</button>
+			<button style={styles.butn}>Find!</button>
 			</form>
 			<div id='charArea' style={styles.arts}>
 			{searchList}
 			</div>
-			
+			</div>
 		</div>
 		)
 	}
@@ -199,13 +201,13 @@ class Toon{
 		this.hk = hk;
 		this.talents = talents;
 		if(rol === "HEALING"){
-			this.role = 'heal';
+			this.role = 'heal.png';
 		}
 		if(rol === "TANK"){
-			this.role = 'tank';
+			this.role = 'tank.png';
 		}
 		if(rol === "DPS"){
-			this.role = 'dps';
+			this.role = 'dps.png';
 		}
 		this.fac = fac;
 	}
@@ -248,9 +250,9 @@ function charValidate(nam,realm,arr){
 
 const styles ={
 	test:{
-		marginTop: '100px',
+
 		color: 'white',
-		marginBottom: '100px',
+
 	},
 	arts:{
 		display: 'flex',
@@ -259,8 +261,22 @@ const styles ={
 		alignItems: 'center',
 		paddingLeft: '5px',
 		paddingRight: '5px',
+		flexWrap: 'wrap',
+		
 	},
 	pad:{
 		marginRight: '5px',
+	},
+			butn:{
+		borderRadius: '25px',
+		backgroundColor: 'goldenrod',
+		color: 'black',
+		fontFamily: 'Fondamento',
+	},
+	container:{
+		minHeight: '100vh',
+	display: 'flex',
+	flexDirection: 'column',
 	}
+	
 }

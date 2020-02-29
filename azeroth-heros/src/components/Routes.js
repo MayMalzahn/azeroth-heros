@@ -9,7 +9,7 @@ import characters from '../pages/characters';
 class Routes extends React.Component {
 	render(){
 		return (
-		<Switch>
+		<Switch style={styles.pad}>
 			<Route exact path="/" component={home} />
 			<Route exact path="/home" component={home} />
 			<Route exact path="/profile" component={profile} />
@@ -21,3 +21,9 @@ class Routes extends React.Component {
 	}
 }
 export default Routes;
+
+const styles ={
+	pad:{
+		
+	}
+}

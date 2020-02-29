@@ -5,16 +5,20 @@ import Popup from 'reactjs-popup';
 
 const CharMini = props =>{
 			var teams = JSON.parse(localStorage.getItem('teamsList'));
-			let teamNames = teams.map((element, i) =>{
+		var teamNames = 'No teams!';
+		if (teams){
+			 teamNames = teams.map((element, i) =>{
 				return <button type='button' onClick={()=>addToTeam({i})} id={i} className='menu-item'>{element.name}</button>
-			})
-			if(teams === undefined){
-				teamNames = [];
-			}
+			})}
 			function addToTeam(position){
+				if(teams[position.i].characters.length < 5){
 				teams[position.i].characters.push(props.val);
 				console.log(teams[position.i]);
 				localStorage.setItem('teamsList', JSON.stringify(teams));
+			}
+				else{
+					window.alert('This team is full!');
+				}
 			}
   return (
 	
@@ -29,7 +33,9 @@ const CharMini = props =>{
 			<p>Achivement Points: {props.val.achiv}</p>
 			<p>Honorable Kills: {props.val.hk}</p>
 			<button style={styles.butn} onClick = {props.del} type="button">Delete</button>
+	  		<div style={styles.noTeam}>
 	  		<Popup trigger={<button style={styles.butn} type="button">Add to Team</button>}>{teamNames}</Popup>
+	  		</div>
 	  		</div>
 			</article>
 	 
@@ -46,10 +52,10 @@ const styles ={
 		margin: '10px',
 		padding: '3px',
 		maxWidth: '25%',
+		
 		},
 	img: {
 		borderRadius: '15px',
-
 	},
 	contn:{
 		textAlign: 'center',
@@ -57,6 +63,10 @@ const styles ={
 	butn:{
 		borderRadius: '25px',
 		backgroundColor: 'goldenrod',
+		color: 'black',
+		fontFamily: 'Fondamento',
+	},
+	noTeam:{
 		color: 'black',
 	}
 		

@@ -36,7 +36,7 @@ export default Header;
 const styles ={
 		head:{
 		top: 0,
-		position: 'absolute',
+		position: 'static',
 		height: '100px',
 		width: '100%',
 		backgroundColor: 'rgb(0, 0, 0)',

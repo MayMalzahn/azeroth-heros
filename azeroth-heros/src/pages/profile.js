@@ -9,9 +9,10 @@ class profile extends React.Component{
 	render(){
 		loadChars();
 	   let talents = savedChar.talents[0].talents.map((element, i) =>{
-		   console.log(savedChar.talents[0].talents[i].spell.icon);
 			return <img style={styles.tal} src={"https://render-us.worldofwarcraft.com/icons/56/"+savedChar.talents[0].talents[i].spell.icon+".jpg"}></img> ;
 	   	})
+	   
+		console.log(savedChar.role);
 		return(
 		<article style={styles.art}>
 			<img style={styles.img} src = {'http://render-us.worldofwarcraft.com/character/'+savedChar.thumb}></img>
@@ -19,7 +20,7 @@ class profile extends React.Component{
 			<h4>{savedChar.clas}</h4>
 			<p>{savedChar.realm}</p>
 			<p>Level: {savedChar.level}</p>
-				<p><img src={savedChar.role}></img></p>
+				<p><img src={'../img/'+savedChar.role}></img></p>
 	
 			<p>Achivement Points: {savedChar.achiv}</p>
 			<p>Honorable Kills: {savedChar.hk}</p>
@@ -27,8 +28,8 @@ class profile extends React.Component{
 			{talents}
 			</section>
 			<section>
-			<h5><a href={"https://worldofwarcraft.com/en-us/character/us/"+savedChar.realm+"/"+savedChar.name}>Official Armory</a></h5>
-			<h5><a href={"https://raider.io/characters/us/"+savedChar.realm+"/"+savedChar.name}>Raider.IO</a></h5>
+			<h5 ><a className='links' href={"https://worldofwarcraft.com/en-us/character/us/"+savedChar.realm+"/"+savedChar.name}>Official Armory</a></h5>
+			<h5><a className='links' href={"https://raider.io/characters/us/"+savedChar.realm+"/"+savedChar.name}>Raider.IO</a></h5>
 			</section>
 			</article>
 		)
@@ -51,8 +52,7 @@ const styles ={
 		color: 'white',
 		width: '45%',
 		margin: 'auto',
-		marginTop: '100px',
-		marginBottom: '100px',
+		marginTop: '25px',
 
 	},
 	img: {
@@ -60,6 +60,6 @@ const styles ={
 	},
 	tal:{
 		borderRadius: '50%'
-	}
+	},
 }
 

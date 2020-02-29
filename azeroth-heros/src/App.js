@@ -28,8 +28,7 @@ const styles ={
 		minHeight: '100vh',
 	},
 	mid:{
-		marginTop: '100px',
-		marginBottom: '100px',
+		
 		
 	}
 }

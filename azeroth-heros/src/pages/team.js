@@ -60,7 +60,7 @@ class team extends React.Component{
 		<div>
 		<div style={styles.test}>
 			<h1>{savedTeam.name}</h1>
-		<NavLink to='/teams'><button type='button' onClick = {()=>this.delTeam(savedTeam.name)}>Delete Team</button></NavLink>
+		<NavLink to='/teams'><button type='button' style={styles.butn} onClick = {()=>this.delTeam(savedTeam.name)}>Delete Team</button></NavLink>
 		<div style ={styles.arts}>
 		{searchList}
 		</div>										  
@@ -92,5 +92,13 @@ const styles ={
 		alignItems: 'center',
 		paddingLeft: '5px',
 		paddingRight: '5px',
+	},
+		butn:{
+		borderRadius: '25px',
+		backgroundColor: 'goldenrod',
+		color: 'black',
+		width: '25%',
+		margin: 'auto',
+		fontFamily: 'Fondamento',
 	},
 }

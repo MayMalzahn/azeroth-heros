@@ -38,18 +38,19 @@ class teams extends React.Component{
 			
 		
 		return(
+			<div style={styles.container}>
 		<div style={styles.test}>
 			<form style={styles.arts} onSubmit={this.select}>
 			<p>
 					<label style={styles.pad}>Team Name</label>
 					<input style={styles.pad} type="text" name="name" id="name" placeholder="Bosltering/Necrotic" />
 				</p>
-			<button>Add!</button>
+			<button style={styles.butn}>Add!</button>
 			</form>
-			<div id='teams'>
+			<div id='teams' style={styles.arts}>
 				{searchList}
 			</div>
-		
+		</div>
 		</div>
 		)}
 	
@@ -68,10 +69,8 @@ function loadTeams(){
 
 const styles ={
 	test:{
-		marginTop: '100px',
 		color: 'white',
-		marginBottom: '100px',
-		
+		paddingBottom: '10px',
 	},
 	arts:{
 		display: 'flex',
@@ -80,8 +79,21 @@ const styles ={
 		alignItems: 'center',
 		paddingLeft: '5px',
 		paddingRight: '5px',
+		flexWrap: 'wrap',
+		
 	},
 	pad:{
 		marginRight: '5px',
+	},
+		butn:{
+		borderRadius: '25px',
+		backgroundColor: 'goldenrod',
+		color: 'black',
+		fontFamily: 'Fondamento',
+	},
+	container:{
+		minHeight: '100vh',
+	display: 'flex',
+	flexDirection: 'column',
 	}
 }
