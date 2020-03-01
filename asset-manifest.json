@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/azeroth-heros/static/css/main.3dd3c4bf.chunk.css",
+    "main.js": "/azeroth-heros/static/js/main.0c1c7b3c.chunk.js",
+    "main.js.map": "/azeroth-heros/static/js/main.0c1c7b3c.chunk.js.map",
+    "runtime-main.js": "/azeroth-heros/static/js/runtime-main.abf2e8f0.js",
+    "runtime-main.js.map": "/azeroth-heros/static/js/runtime-main.abf2e8f0.js.map",
+    "static/js/2.73fd7766.chunk.js": "/azeroth-heros/static/js/2.73fd7766.chunk.js",
+    "static/js/2.73fd7766.chunk.js.map": "/azeroth-heros/static/js/2.73fd7766.chunk.js.map",
+    "index.html": "/azeroth-heros/index.html",
+    "precache-manifest.bd69fe6985f66170ddd5f65e78d5753b.js": "/azeroth-heros/precache-manifest.bd69fe6985f66170ddd5f65e78d5753b.js",
+    "service-worker.js": "/azeroth-heros/service-worker.js",
+    "static/css/main.3dd3c4bf.chunk.css.map": "/azeroth-heros/static/css/main.3dd3c4bf.chunk.css.map",
+    "static/js/2.73fd7766.chunk.js.LICENSE.txt": "/azeroth-heros/static/js/2.73fd7766.chunk.js.LICENSE.txt",
+    "static/media/dps.png": "/azeroth-heros/static/media/dps.1d522baf.png",
+    "static/media/heal.png": "/azeroth-heros/static/media/heal.548ed70a.png",
+    "static/media/home-img.png": "/azeroth-heros/static/media/home-img.95a8f847.png",
+    "static/media/logo.jpg": "/azeroth-heros/static/media/logo.bacbaba7.jpg",
+    "static/media/tank.png": "/azeroth-heros/static/media/tank.1061efff.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.abf2e8f0.js",
+    "static/js/2.73fd7766.chunk.js",
+    "static/css/main.3dd3c4bf.chunk.css",
+    "static/js/main.0c1c7b3c.chunk.js"
+  ]
+}
