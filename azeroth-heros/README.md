@@ -2,15 +2,9 @@ Most functionality is implemented. API has had no issues like I ran into previou
 
 ToDo:
 
-Adding to team is currently not functional. Trying to find work around for the function. Doesn't like using 'this' in a function called after render.
+Team detail page needs work
 
-Nearly unstyled
-
-Using props in a link is not working. Looking into workaround. Due to this, most img do not work. Links on profile page also do not work since they rely on the props to get exact page.
-
-On profile page talents show up as objects, not their img
-
-Home page needs more text. Originally, adding characters was done here. I now want it to have game information.
+Healer/tank/dps img do not show up. 
 
 
 Possible adds if I have time:
